@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'busapp',
     'bootstrap4',
     'bootstrap3',
+     'tinymce',
     'registration',
     'rest_framework',
     'rest_framework.authtoken',
@@ -84,7 +85,7 @@ WSGI_APPLICATION = 'buslock.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': '',
+        'NAME': 'buslocker',
         'USER' : 'moringa',
         'Password' : '0732442483a',
     }

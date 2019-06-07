@@ -33,4 +33,4 @@ def home(request):
 
             HttpResponseRedirect('home')
 
-    return render(request, 'index.html', {'project':project, 'letterForm':form})
+    return render(request, 'index.html', {'bus':bus, 'letterForm':form})

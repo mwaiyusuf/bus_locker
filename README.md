@@ -65,7 +65,7 @@ Admin should:
 * In your terminal:
 
         $ git clone https://github.com/mwaiyusuf/bus 
-        $ cd Awards
+        $ cd bus_locker 
 
 ## Running the Application
 * Creating the virtual environment

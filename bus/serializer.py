@@ -1,15 +1,13 @@
-from django.core.mail import EmailMultiAlternatives
-from django.template.loader import render_to_string
+from rest_framework import serializers
+from .models import Project, Profile
 
-def send_welcome_email(name,receiver):
-    # Creating message subject and sender
-    subject = 'Welcome to the MoringaTribune NewsLetter'
-    sender = 'mwaigalo5@@gmail.com'
 
-    #passing in the context vairables
-    text_content = render_to_string('email/busmemail.txt',{"name": name})
-    html_content = render_to_string('email/busmemail.html',{"name": name})
+class ProjectSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Project
+        fields = ('title', 'project_image', 'description', 'project_url')
 
-    msg = EmailMultiAlternatives(subject,text_content,sender,[receiver])
-    msg.attach_alternative(html_content,'text/html')
-    msg.send()
+class ProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Profile
+        fields = ('bio', 'profile_pic', 'user', 'project' , 'contact')

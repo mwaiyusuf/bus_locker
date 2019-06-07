@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+{% block content %}
+
+
+<div class="container">
+
+  <div class="jumbotron text-center mb-0" id="jumbo" style="background-color: #e0e0e0;">
+
+    <h1 class="h1" style="  color: #2196f3;font-size:70px; font-family: 'Ranga', cursive;">Awards</h1>
+    <p class="h1" style="  color: #212121;font-size:25px; font-family: 'Ranga', cursive;">Post project,view and be able to review.</p>
+  </div>
+</div>
+
+
+<div class="jumbotron itson mb-3 ">
+
+  <div class="card-deck flex-wrap">
+    {% for project in project %}
+    <div class="card border-secondary w-31"><a href="{% url 'project' project.id %}">
+
+        <img src="{{project.project_image.url}}" data-target="#imageModal{{project.id}}" data-toggle="modal" alt="" class="img-fluid"
+          id="eachimage1" size="100px200"></a>
+      <p style="  text-align:center;"> {{ project.description}}</p>
+     <p style="  text-align:center;"> {{ project.user.username}}</p>
+      
+       <span><button type="button" class="btn btn-outline-primary"><a href="{{ project.project_url}}">Visit Site</a> </button></span>
+       <span><button type="button" class="btn btn-outline-success">like</button></span>
+       <span><button type="button" class="btn btn-outline-info"><a href="{% url 'project' project.id %}">View Project</a></button></span>
+      
+
+    </div>
+    {% endfor %}
+  </div>
+
+
+</div>
+
+<div class="jumbotron text-center mt-2" style="background-color:white; ">
+
+  <form action="{%url 'homePage'%}" method="post">
+    {%csrf_token%} 
+    {% bootstrap_form letterForm %}
+    <input type="submit" style="background-color: #fafafa;" value="Subscribe To Awards ">
+  </form>
+
+</div>
+
+
+ 
+
+{% endblock %} 
+{% block scripts %} 
+{{block.super}}
+<script type="text/javascript" src="{%static 'js/script.js'%}"></script>
+
+{% endblock %}

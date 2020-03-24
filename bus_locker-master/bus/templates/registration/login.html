@@ -1,0 +1,74 @@
+{%extends "registration/base.html"%}
+{% load bootstrap4 %} 
+{% load static %} 
+{% block content %}
+<div class="container" style="background-color:#fff;">
+  <div class="row p-0 m-0">
+    <div class="col-md-6 mt-5">
+      {% if form.errors %}
+      <p> Password or Username is incorrect </p>
+      {% endif %}
+
+    </div>
+
+    <div class="col-md-6  mt-5">
+      {% if form.errors %}
+      <p> Some Information Might be Incorrect </p>
+      {% endif %}
+      <div class="card border-primary mb-4" style="max-width:23rem;">
+
+        <div class="card-header text-center">
+          <h1   style=" color: #2196f3 ;font-size:65px; ">AWARDS</h1>
+          <h3 class="text-center" style="color:#e0e0e0;font-size:13px; ">Login to see projects</h3>
+        </div>
+        <div class="card-body text-primary">
+          <form action="/accounts/login/" method="post" style="font-family: 'Ranga', cursive;  " >
+            {% csrf_token %} 
+            {% bootstrap_form form%}
+
+            <div class="form-group">
+              <input type="submit" class="btn btn-primary btn-sm" value="Login">
+            </div>
+
+            <input type="hidden" name="next" value="{{next}}">
+
+          </form>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+ 
+  <div class="row p-0 m-0">
+    <div class="col-md-6">
+
+      <div class="card mt-5" style="width: 27rem;">
+        <div class="card-body text-center">
+          <h5 class="card-title" style=" ">Don't have an account?</h5>
+          <h2 style="color:#e0e0e0;font-size:8px; ">Sign UP</h2>
+          <a href="/accounts/register" class="btn btn-primary" style=" ">Sign Up</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card mt-5" style="width: 27rem;">
+        <div class="card-body text-center">
+          <h5 class="card-title" style=" " >Get the app.</h5>
+          <a href=" https://play.google.com/store/apps/details?id=com.instagram.android&hl=en"> Android</a><br>
+          <a href="https://itunes.apple.com/ke/app/instagram/id389801252?mt=8"> Iphone</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  
+</div>
+
+<br>
+<br>
+ 
+</div>
+
+{% endblock %}
